@@ -11,27 +11,23 @@ public class T_SiparisOnay extends T_Menu{
         super(driver);
     }
 
-    @FindBy(xpath="//mat-select[@formcontrolname='durum']")
-    @CacheLookup
+    @FindBy(css="mat-select[formcontrolname='durum']")
     public WebElement durum;
 
-    @FindBy(xpath="//input[@formcontrolname='baslangicTarihi']")
-    @CacheLookup
+    @FindBy(css="input[formcontrolname='baslangicTarihi']")
     public WebElement baslangicTarihi;
 
-    @FindBy(xpath="//input[@formcontrolname='bitisTarihi']")
-    @CacheLookup
+    @FindBy(css="input[formcontrolname='bitisTarihi']")
     public WebElement bitisTarihi;
 
     @FindBy(xpath="//span[contains(text(), 'Filtrele')]")
-    @CacheLookup
     public WebElement filtrele;
 
     @FindBy(xpath="//button[contains(text(), 'SİPARİŞLERİ ONAYLA')]")
-    @CacheLookup
     public WebElement siparisOnayla;
 
     @FindBy(xpath="//button[contains(text(), 'SİPARİŞLERİ REDDET')]")
     @CacheLookup
     public WebElement siparisReddet;
+
 }

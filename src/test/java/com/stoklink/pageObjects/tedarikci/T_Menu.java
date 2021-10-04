@@ -17,11 +17,9 @@ public class T_Menu{
     }
 
     @FindBy(xpath = "//a[@title='Teklif Arama / Verme']")
-    @CacheLookup
     public WebElement teklifAraVer;
 
     @FindBy(xpath = "//a[@title='Sipariş Onay']")
-    @CacheLookup
     public WebElement siparisOnay;
 
 }

@@ -15,6 +15,7 @@ import io.cucumber.java8.En;
 
 public class Musteri_TalepOlustur extends Base implements En {
 
+
 	public Musteri_TalepOlustur() {
 
 		Given("^Acilmis bir browserda musteri kullanici adi ve sifreyle sisteme giris yapar$", (DataTable table) -> {

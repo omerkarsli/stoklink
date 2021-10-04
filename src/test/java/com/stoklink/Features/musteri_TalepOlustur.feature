@@ -3,7 +3,6 @@ Feature: Musteri Talep Olustur
   
   Musteri stoklinke girip talep olusturur.
 
-	@ui
   Scenario: 
     Given Acilmis bir browserda musteri kullanici adi ve sifreyle sisteme giris yapar
       | kullaniciAdi        | sifre |

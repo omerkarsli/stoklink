@@ -1,4 +1,4 @@
-package com.stoklink.utils.jsonUtils;
+package com.stoklink.utils;
 
 import java.io.IOException;
 

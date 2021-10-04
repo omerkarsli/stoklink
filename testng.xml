@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Stoklink">
+    <test name="Test Basics 1">
+        <classes>
+            <class name="com.stoklink.API.testCases.Login"/>
+            <class name="com.stoklink.API.testCases.UserGetir"/>
+            <class name="com.stoklink.API.testCases.TalepAra"/>
+            <class name="com.stoklink.API.testCases.MarkaAll"/>
+        </classes>
+
+    </test> <!-- Test -->
+</suite> <!-- Suite -->

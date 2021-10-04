@@ -8,11 +8,12 @@ Feature: Musteri Talep Olustur
       | kullaniciAdi        | sifre |
       | zkarsli61@gmail.com | 12345 |
     
-    And Musteri talep olustur sayfasina gider
-    
-    When Musteri talep olusturur
+    When Musteri talep olustur sayfasina gider
+    And Musteri urun satirini doldurur
       | urunKodu       | muadil | stok | urunMiktari | Aciklama |
       | 09062483202750 | true   | true |          10 | Urun 1   |
+    And Musteri urun satirini doldurur
+      | urunKodu       | muadil | stok | urunMiktari | Aciklama |
       |     1207450000 | false  | true |          10 | Urun 2   |
-    
+    And Musteri teklif iste butonuna tiklar
     Then Musteri olusturdugu talebi talepler sayfasinda gormelidir

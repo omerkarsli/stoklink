@@ -13,15 +13,15 @@ public class T_TeklifAraVer extends T_Menu {
 		super(driver);
 	}
 
-	@FindBy(xpath = "//mat-select[@formcontrolname='durum']")
+	@FindBy(css = "mat-select[formcontrolname='durum']")
 	@CacheLookup
 	public WebElement durum;
 
-	@FindBy(xpath = "//input[@formcontrolname='baslangicTarihi']")
+	@FindBy(css = "input[formcontrolname='baslangicTarihi']")
 	@CacheLookup
 	public WebElement baslangicTarihi;
 
-	@FindBy(xpath = "//input[@formcontrolname='bitisTarihi']")
+	@FindBy(css = "input[formcontrolname='bitisTarihi']")
 	@CacheLookup
 	public WebElement bitisTarihi;
 
@@ -29,17 +29,17 @@ public class T_TeklifAraVer extends T_Menu {
 	@CacheLookup
 	public WebElement filtrele;
 
-	public void teklifVer(int rowIndex) throws InterruptedException {
-		String row = ".//tr[" + (rowIndex * 2 + 1) + "]";
-		By createXpath = By.xpath(row + "//span[contains(text(), 'create')]");
-		By amount = By.xpath(row + "//td[6]");
+	public void teklifVer(String talepNo) throws InterruptedException {
+		String rowXpath = "//tr[contains(text(),'" + talepNo + "')]";
+		By createXpath = By.xpath(rowXpath + "//span[contains(text(), 'create')]");
+		By amount = By.xpath(rowXpath + "//td[6]");
 		By table = By.tagName("table");
 		String setAmount = driver.findElement(table).findElement(amount).getText();
 		setAmount = setAmount.substring(0, setAmount.indexOf(" "));
 		driver.findElement(table).findElement(createXpath).click();
 		Thread.sleep(500);
 		WebElement teklifRow = driver.findElement(By.tagName("table"))
-				.findElement(By.xpath(".//tr[" + (rowIndex * 2 + 2) + "]"));
+				.findElement(By.xpath(rowXpath + "//following-sibling::tr"));
 		WebElement teklifVerAmount = teklifRow.findElement(By.xpath(".//input[@formcontrolname='miktar']"));
 		WebElement birimFiyat = teklifRow.findElement(By.xpath(".//input[@formcontrolname='birimFiyat']"));
 		WebElement teslimSuresi = teklifRow.findElement(By.xpath(".//input[@formcontrolname='teslimSuresi']"));
@@ -48,6 +48,10 @@ public class T_TeklifAraVer extends T_Menu {
 
 		teklifVerAmount.sendKeys(setAmount);
 		birimFiyat.sendKeys("2,55");
+		birimFiyat.sendKeys(Keys.TAB);
+		WebElement active = driver.switchTo().activeElement();
+		active.click();
+		active.sendKeys(Keys.ENTER);
 		teslimSuresi.sendKeys("3");
 		teslimSuresiBirimi.click();
 		int check = (int) Math.floor(Math.random() * 3);
@@ -57,4 +61,6 @@ public class T_TeklifAraVer extends T_Menu {
 		teslimSuresiBirimi.sendKeys(Keys.ENTER);
 
 	}
+
+
 }

@@ -13,27 +13,35 @@ public class ReadConfig {
 
         try {
             FileInputStream fis = new FileInputStream(src);
-            this.pro = new Properties();
-            this.pro.load(fis);
+            pro = new Properties();
+            pro.load(fis);
         } catch (IOException var3) {
             System.out.println(var3.getMessage());
         }
     }
 
     public String getApplicationURL() {
-        return this.pro.getProperty("baseURL");
+        return pro.getProperty("baseURL");
     }
 
-    public String getUserName() {
-        return this.pro.getProperty("username");
+    public String getMusteriUsername() {
+        return pro.getProperty("musteriUsername");
     }
 
-    public String getTUserName() {
-        return this.pro.getProperty("tUsername");
+    public String getTedarikciUsername() {
+        return pro.getProperty("tedarikciUsername");
+    }
+
+    public String getAdminUsername() {
+        return pro.getProperty("adminUsername");
     }
 
     public String getPassword() {
-        return this.pro.getProperty("password");
+        return pro.getProperty("password");
+    }
+
+    public String getTedarikciPassword() {
+        return pro.getProperty("tedarikciPassword");
     }
 
 }

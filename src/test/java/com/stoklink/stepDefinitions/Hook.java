@@ -4,7 +4,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import com.stoklink.utils.baseUtils.Base;
+import com.stoklink.Features.Base;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;

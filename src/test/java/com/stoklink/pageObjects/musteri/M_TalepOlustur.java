@@ -35,6 +35,9 @@ public class M_TalepOlustur extends M_Menu {
 	@FindBy(xpath = "//span[contains(text(), 'Teklif İste')]")
 	public WebElement teklifIste;
 
+	@FindBy(css = "mat-dialog-container mat-dialog-content")
+	public WebElement dialogBox;
+
 	By table = By.xpath("//table[@formarrayname='talepler']//tbody");
 	By row ,urunNo, marka, miktar, aciklama, muadil, stok;
 
@@ -49,18 +52,24 @@ public class M_TalepOlustur extends M_Menu {
 		stok = By.xpath("//tr[" + String.valueOf(rowIndex + 1) + "]//mat-slide-toggle[@formcontrolname='stok']");
 	}
 	//todo return type eklenecek
-	public void save(String type) {
+	public String save(String type) {
 		if(type.equals("taslak")){
 			taslakKaydet.click();
 
 		}else if(type.equals("teklif")){
 			teklifIste.click();
 		}
+		new WebDriverWait(driver,10).until(ExpectedConditions.visibilityOf(dialogBox));
+		String message = dialogBox.getText();
+		String talepNo = message.substring(0,message.indexOf(" "));
+
 		driver.findElement(By.xpath("//span[contains(text(), 'KAPAT')]")).click();
+
+		return talepNo;
 	}
 
     public void addProductItem(String val_refNo, boolean val_muadil, boolean val_stok, String val_amount, String val_aciklama)
-            throws InterruptedException {
+	{
 
 		if(lastRowIndex !=0){
 			yeniSatir.click();

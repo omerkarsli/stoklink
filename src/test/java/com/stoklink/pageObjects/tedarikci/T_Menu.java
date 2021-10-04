@@ -6,6 +6,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class T_Menu{
 
@@ -16,11 +19,27 @@ public class T_Menu{
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(xpath = "//a[@title='Teklif Arama / Verme']")
+    @FindBy(css = "a[title='Teklif Arama / Verme']")
     public WebElement teklifAraVer;
 
-    @FindBy(xpath = "//a[@title='Sipariş Onay']")
+    @FindBy(css = "a[title='Tedarikçi']")
+    public WebElement tedarikciBtn;
+
+    @FindBy(css = "a[title='Sipariş Onay']")
     public WebElement siparisOnay;
+
+    public void clickTedarikciBtn(FluentWait<WebDriver> wait) throws InterruptedException {
+        Thread.sleep(1000);
+        wait.until(ExpectedConditions.elementToBeClickable(tedarikciBtn));
+        tedarikciBtn.click();
+    }
+
+    public void clickTeklifAraVer(FluentWait<WebDriver> wait) throws InterruptedException {
+        Thread.sleep(1000);
+        wait.until(ExpectedConditions.elementToBeClickable(tedarikciBtn));
+        teklifAraVer.click();
+    }
+
 
 }
 

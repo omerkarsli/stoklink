@@ -1,0 +1,16 @@
+[
+    {
+      "referans":"09062483202750",
+      "muadil": true,
+      "stok": false,
+      "urunMiktari": "10",
+      "aciklama": "Urun 1"
+    },
+    {
+      "referans":"1207450000",
+      "muadil": false,
+      "stok": false,
+      "urunMiktari": "20",
+      "aciklama": "Urun 2"
+    }
+]

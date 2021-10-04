@@ -33,9 +33,8 @@ public class Login {
 		txtPassword.sendKeys(pwd);
 	}
 
-	public void clickLogin() throws InterruptedException {
+	public void clickLogin(){
 		btnLogin.click();
-		Thread.sleep(2000);
 	}
 
 }

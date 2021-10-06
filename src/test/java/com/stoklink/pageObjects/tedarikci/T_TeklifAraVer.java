@@ -1,9 +1,7 @@
 package com.stoklink.pageObjects.tedarikci;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import com.paulhammant.ngwebdriver.NgWebDriver;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 
@@ -37,7 +35,7 @@ public class T_TeklifAraVer extends T_Menu {
 		String setAmount = driver.findElement(table).findElement(amount).getText();
 		setAmount = setAmount.substring(0, setAmount.indexOf(" "));
 		driver.findElement(table).findElement(createXpath).click();
-		Thread.sleep(500);
+		new NgWebDriver((JavascriptExecutor)driver).waitForAngularRequestsToFinish();
 		WebElement teklifRow = driver.findElement(By.tagName("table"))
 				.findElement(By.xpath(rowXpath + "//following-sibling::tr"));
 		WebElement teklifVerAmount = teklifRow.findElement(By.xpath(".//input[@formcontrolname='miktar']"));

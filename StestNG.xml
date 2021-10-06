@@ -5,6 +5,7 @@
         <classes>
             <class name="com.stoklink.testCases.MusteriTalepOlustur"/>
             <class name="com.stoklink.testCases.TedarikciTeklifVer"/>
+            <class name="com.stoklink.testCases.AdminTeklifOnayla"/>
         </classes>
 
     </test> <!-- Test -->

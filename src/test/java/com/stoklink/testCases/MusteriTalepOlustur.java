@@ -26,7 +26,7 @@ public class MusteriTalepOlustur extends Base {
         }
 
 
-        mTalepler.clickTalepOlustur(fwait);
+        mTalepler.clickTalepOlustur();
 
         mTalepOlustur = new M_TalepOlustur(driver);
 

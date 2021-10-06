@@ -20,7 +20,7 @@ public class M_Menu {
     @FindBy(xpath="//a[@title='Talepler']")
     public WebElement talepler;
 
-    @FindBy(xpath="//a[@title='Siparişler']")
+    @FindBy(css="a[title='Siparişler']")
     public WebElement siparisler;
 
     @FindBy(css="a[title='Talep Oluştur']")
@@ -43,24 +43,15 @@ public class M_Menu {
        }
     }
 
-    public void clickMusteriMenu() throws InterruptedException {
-        Thread.sleep(2000);
-        new WebDriverWait(driver, 10)
-                .ignoring(StaleElementReferenceException.class)
-                .until(ExpectedConditions.jsReturnsValue("return document.readyState == 'complete'"));
-        musteriMenu.click();
+    public void clickMusteriMenu() {
+        new WebDriverWait(driver,10).until(ExpectedConditions.elementToBeClickable(musteriMenu)).click();
     }
 
-    public void clickTalepOlustur(FluentWait<WebDriver> wait) throws InterruptedException {
-            try {
-                talepOlustur.click();
-            } catch (Exception e) {
-                if (isTedarikci() && !(talepOlustur.isDisplayed())) {
-                    clickMusteriMenu();
-                }
-                wait.until(ExpectedConditions.elementToBeClickable(talepOlustur)).click();
+    public void clickTalepOlustur(){
+        new WebDriverWait(driver,10).until(ExpectedConditions.elementToBeClickable(talepOlustur)).click();
+    }
 
-
-            }
+    public void clickSiparisler(){
+        new WebDriverWait(driver,10).until(ExpectedConditions.elementToBeClickable(siparisler)).click();
     }
 }

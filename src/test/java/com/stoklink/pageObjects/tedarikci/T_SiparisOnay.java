@@ -27,7 +27,7 @@ public class T_SiparisOnay extends T_Menu{
     public WebElement siparisOnayla;
 
     @FindBy(xpath="//button[contains(text(), 'SİPARİŞLERİ REDDET')]")
-    @CacheLookup
+
     public WebElement siparisReddet;
 
 }

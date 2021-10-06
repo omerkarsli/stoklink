@@ -28,15 +28,11 @@ public class T_Menu{
     @FindBy(css = "a[title='Sipariş Onay']")
     public WebElement siparisOnay;
 
-    public void clickTedarikciBtn(FluentWait<WebDriver> wait) throws InterruptedException {
-        Thread.sleep(1000);
-        wait.until(ExpectedConditions.elementToBeClickable(tedarikciBtn));
+    public void clickTedarikciBtn(){
         tedarikciBtn.click();
     }
 
-    public void clickTeklifAraVer(FluentWait<WebDriver> wait) throws InterruptedException {
-        Thread.sleep(1000);
-        wait.until(ExpectedConditions.elementToBeClickable(tedarikciBtn));
+    public void clickTeklifAraVer(){
         teklifAraVer.click();
     }
 

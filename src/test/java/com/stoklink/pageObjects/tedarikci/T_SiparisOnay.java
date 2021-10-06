@@ -1,5 +1,6 @@
 package com.stoklink.pageObjects.tedarikci;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
@@ -20,14 +21,18 @@ public class T_SiparisOnay extends T_Menu{
     @FindBy(css="input[formcontrolname='bitisTarihi']")
     public WebElement bitisTarihi;
 
-    @FindBy(xpath="//span[contains(text(), 'Filtrele')]")
+    @FindBy(xpath="//span[contains(., 'Filtrele')]")
     public WebElement filtrele;
 
-    @FindBy(xpath="//button[contains(text(), 'SİPARİŞLERİ ONAYLA')]")
-    public WebElement siparisOnayla;
 
-    @FindBy(xpath="//button[contains(text(), 'SİPARİŞLERİ REDDET')]")
-
-    public WebElement siparisReddet;
+    public void siparisOnayla(WebElement row){
+        WebElement onayBtn = row.findElement(By.cssSelector("button[mattooltip='Siparişi Onayla']"));
+        String miktar = row.findElement(By.xpath(".//td[contains(@class, 'mat-column-teklifMiktar')]")).getText();
+        miktar = miktar.substring(0,miktar.indexOf(" "));
+        WebElement onayMiktar = row.findElement(By.name("siparisMiktar"));
+        onayMiktar.sendKeys(miktar);
+        onayBtn.click();
+        ng.waitForAngularRequestsToFinish();
+    }
 
 }

@@ -18,7 +18,6 @@ public class AdminTeklifOnayla extends Base {
         adminLogin();
         a = new A_TeklifIslemleri(driver);
         String talepNo = context.getAttribute("talepNo").toString();
-//        String talepNo = "21100600002";
         WebElement talepSatir = driver
                 .findElement(a.tableTalep)
                 .findElement(By.xpath(

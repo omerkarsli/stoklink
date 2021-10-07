@@ -8,6 +8,7 @@
             <class name="com.stoklink.testCases.AdminTeklifOnayla"/>
             <class name="com.stoklink.testCases.MusteriSiparisOnayla"/>
             <class name="com.stoklink.testCases.TedarikciSiparisOnayla"/>
+            <class name="com.stoklink.testCases.AdminSiparisOnayla"/>
         </classes>
 
     </test> <!-- Test -->

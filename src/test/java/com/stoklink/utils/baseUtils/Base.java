@@ -3,6 +3,7 @@ package com.stoklink.utils.baseUtils;
 import com.paulhammant.ngwebdriver.NgWebDriver;
 import com.stoklink.pageObjects.Login;
 import com.stoklink.pageObjects.admin.A_Menu;
+import com.stoklink.pageObjects.admin.A_SiparisIslemleri;
 import com.stoklink.pageObjects.admin.A_TeklifIslemleri;
 import com.stoklink.pageObjects.musteri.M_Menu;
 import com.stoklink.pageObjects.musteri.M_Siparisler;
@@ -29,7 +30,8 @@ public class Base {
     public static WebDriver driver;
     public ReadConfig rc = new ReadConfig();
     public static WebDriverWait wait;
-    public static A_TeklifIslemleri a;
+    public static A_TeklifIslemleri aTeklifIslemleri;
+    public static A_SiparisIslemleri aSiparisIslemleri;
     public static M_Talepler mTalepler;
     public static M_TalepOlustur mTalepOlustur;
     public static M_Siparisler mSiparisler;
@@ -82,8 +84,8 @@ public class Base {
         ng.waitForAngularRequestsToFinish();
     }
 
-   /* @AfterMethod
+    @AfterMethod
     public void teardown(){
         driver.quit();
-    }*/
+    }
 }

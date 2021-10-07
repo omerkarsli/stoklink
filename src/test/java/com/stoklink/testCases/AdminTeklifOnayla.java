@@ -3,11 +3,7 @@ package com.stoklink.testCases;
 import com.stoklink.pageObjects.admin.A_TeklifIslemleri;
 import com.stoklink.utils.baseUtils.Base;
 import org.openqa.selenium.By;
-import org.openqa.selenium.StaleElementReferenceException;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.FluentWait;
 import org.testng.ITestContext;
 import org.testng.annotations.Test;
 
@@ -16,10 +12,10 @@ public class AdminTeklifOnayla extends Base {
     @Test
     public void teklifOnayla(ITestContext context){
         adminLogin();
-        a = new A_TeklifIslemleri(driver);
+        aTeklifIslemleri = new A_TeklifIslemleri(driver);
         String talepNo = context.getAttribute("talepNo").toString();
         WebElement talepSatir = driver
-                .findElement(a.tableTalep)
+                .findElement(aTeklifIslemleri.tableTalep)
                 .findElement(By.xpath(
                         ".//td[contains(text(),'"+ talepNo +"')]//parent::tr"));
 
@@ -27,7 +23,7 @@ public class AdminTeklifOnayla extends Base {
         talepSec.click();
         ng.waitForAngularRequestsToFinish();
 
-        WebElement talepSatirTablo = driver.findElement(a.tableTalepItems);
+        WebElement talepSatirTablo = driver.findElement(aTeklifIslemleri.tableTalepItems);
         int talepItemsCount = talepSatirTablo.findElements(By.tagName("tr")).size();
         for(int i=1; i < talepItemsCount; i++){
             WebElement talepItemRow = talepSatirTablo.findElement(By.xpath(".//tbody//tr[" + i +"]"));
@@ -51,7 +47,7 @@ public class AdminTeklifOnayla extends Base {
         }
 
         talepSatir = driver
-                .findElement(a.tableTalep)
+                .findElement(aTeklifIslemleri.tableTalep)
                 .findElement(By.xpath(
                         ".//td[contains(text(),'"+ talepNo +"')]//parent::tr"));
         talepSatir.findElement(By.xpath(".//td[contains(@class,'adminGecerlilikTarihi')]")).click();

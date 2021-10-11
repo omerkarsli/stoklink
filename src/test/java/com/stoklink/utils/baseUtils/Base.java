@@ -29,6 +29,7 @@ import java.util.concurrent.TimeUnit;
 public class Base {
     public static WebDriver driver;
     public ReadConfig rc = new ReadConfig();
+    public static JavascriptExecutor js;
     public static WebDriverWait wait;
     public static A_TeklifIslemleri aTeklifIslemleri;
     public static A_SiparisIslemleri aSiparisIslemleri;
@@ -44,7 +45,7 @@ public class Base {
     public void setup(){
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
-        JavascriptExecutor js = (JavascriptExecutor)driver;
+        js = (JavascriptExecutor)driver;
         ng = new NgWebDriver(js);
         wait = new WebDriverWait(driver, 10);
         login = new Login(driver);

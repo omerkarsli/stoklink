@@ -54,15 +54,18 @@ public class M_Siparisler extends M_Menu{
 
     public void siparisVer(){
         WebDriverWait wait = new WebDriverWait(driver, 10);
+        NgWebDriver ng = new NgWebDriver((JavascriptExecutor)driver);
+
         wait
             .until(ExpectedConditions.elementToBeClickable(siparisVerBtn))
             .click();
 
-        new NgWebDriver((JavascriptExecutor)driver).waitForAngularRequestsToFinish();
+        ng.waitForAngularRequestsToFinish();
 
         wait
             .until(ExpectedConditions.elementToBeClickable(By.xpath("//button[.='SİPARİŞİ TAMAMLA']")))
             .click();
+        ng.waitForAngularRequestsToFinish();
 
     }
 }

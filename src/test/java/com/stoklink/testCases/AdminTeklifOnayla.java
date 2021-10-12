@@ -3,8 +3,6 @@ package com.stoklink.testCases;
 import com.stoklink.pageObjects.admin.A_TeklifIslemleri;
 import com.stoklink.utils.baseUtils.Base;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.ITestContext;
@@ -54,7 +52,8 @@ public class AdminTeklifOnayla extends Base {
                 .findElement(By.xpath(
                         ".//tr[contains(.,'"+ talepNo +"')]"));
         Actions actions = new Actions(driver);
-        actions.moveToElement(talepSatir).click(talepSatir.findElement(By.xpath(".//td[contains(@class,'adminGecerlilikTarihi')]"))).build().perform();
+        actions.moveToElement(talepSatir).click(
+                talepSatir.findElement(By.xpath(".//td[contains(@class,'adminGecerlilikTarihi')]"))).build().perform();
         ng.waitForAngularRequestsToFinish();
         driver.findElement(By.xpath("//button[contains(.,'TAMAMLA')]")).click();
         ng.waitForAngularRequestsToFinish();

@@ -79,7 +79,7 @@ public class M_TalepOlustur extends M_Menu {
     }
 	public void setProductItem(int rowIndex, String val_refNo, boolean val_muadil, boolean val_stok, String val_amount, String val_aciklama) {
 		getProductItemAdress(rowIndex);
-		WebDriverWait wait = new WebDriverWait(driver, 20);
+		WebDriverWait wait = new WebDriverWait(driver, 10);
 		if (!StringUtils.isBlank(val_refNo)) {
 			driver.findElement(urunNo).clear();
 			driver.findElement(urunNo).sendKeys(val_refNo);
